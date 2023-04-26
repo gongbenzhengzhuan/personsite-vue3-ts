@@ -21,18 +21,46 @@
   </el-table>
 </template>
 
-<script>
+<script lang="ts" setup>
+const tableData = [
+  {
+    date: '2016-05-03',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-02',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-04',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+  {
+    date: '2016-05-01',
+    name: 'Tom',
+    address: 'No. 189, Grove St, Los Angeles',
+  },
+]
+</script>
+
+<!--<script>
 import axios from "axios";
 import {alldata} from "@/api/api"
 import {onMounted, reactive} from "vue";
 // 请求延时（毫秒数，如果请求话费超过了'timeout'的时间，请求将被中断）
 axios.defaults.timeout = 100000
+
+const tableData=[];
 export default {
   name: "TablePostView",
   setup() {
-    const datas = reactive({
-      tableData: [],
-    })
+    // const datas = reactive({
+    //   tableData: [],
+    // })
+
     const methods = {
       requestall() {
         const data = {
@@ -46,7 +74,7 @@ export default {
           result.forEach(
               element => {
                 console.log(element)
-                datas.tableData.push(
+                tableData.push(
                     {
                       name: element.userName,
                       date: element.createTime,
@@ -55,8 +83,10 @@ export default {
                 );
               }
           );
-          console.log(datas.tableData)
-          this.tableData = datas.tableData
+          console.log("tableData:"+tableData)
+          // console.log(tableData.pop())
+          // this.tableData = datas.tableData
+          // console.log("thistable:"+this.tableData)
         }).catch(err => {
           console.log(err)
         })
@@ -65,61 +95,20 @@ export default {
     onMounted(() => {
       methods.requestall()
     })
+
+    // return {
+    //   ...methods
+    // }
+  },
+  data()
+  {
     return {
-      ...methods
-    }
+      tableData,
+    };
   }
 }
 
-// export default {
-//   name: 'TablePostView',
-//   methods: {
-//     GetUserInfo() {
-//       //方案一
-//       //axios.get('http://123.60.190.167:8088//datasystem-client/labelManage/getLabelFeature?id=10991').then(
-//
-//       //方案二
-//       const getNewList = () => {
-//         const params = {
-//           id: 10991
-//         }
-//         getArticleList(params).then(
-//       //方案三
-//      // getAllData().then(
-//           response => {
-//             let data = response.data;
-//             let result = data.data;
-//             console.log(result)
-//             result.forEach(
-//                 element => {
-//                   this.tableData.push(
-//                       {
-//                         name: element.userName,
-//                         date: element.createTime,
-//                         address: element.operationType
-//                       }
-//                   );
-//                 }
-//             );
-//           }
-//       )
-//     }
-//   }
-// }
-// ,
-// mounted()
-// {
-//   this.GetUserInfo()
-// }
-// ,
-// data()
-// {
-//   return {
-//     tableData: [],
-//   };
-// }
-// }
-</script>
+</script>-->
 
 <style>
 #app {
