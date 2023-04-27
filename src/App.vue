@@ -5,6 +5,7 @@
     <router-link to="/table">Table</router-link> |
     <router-link to="/tablePost">TablePost</router-link> |
     <router-link to="/login">Login</router-link> |
+    <router-link to="/sentinel">sentinel</router-link> |
     <router-link to="/template">Template</router-link>
   </nav>
   <router-view/>
