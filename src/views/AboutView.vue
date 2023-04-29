@@ -6,6 +6,7 @@
     <router-link to="/tablePost">TablePost</router-link> |
     <router-link to="/home">Home</router-link> |
     <router-link to="/sentinel">OtherViews</router-link> |
+    <router-link to="/loginPost">loginPost</router-link> |
     <router-link to="/template">Template</router-link>
   </nav>
   <router-view/>
