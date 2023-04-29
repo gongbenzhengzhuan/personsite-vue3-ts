@@ -32,13 +32,14 @@
 </template>
 
 <script>
+import request from '@/utils/request'
 export default {
   data () {
     return {
       // 这是登录表单的数据绑定对象
       loginForm: {
-        username: '',
-        password: ''
+        username: 'admin',
+        password: '123456'
       },
       // 这是表单的验证规则对象
       loginFormRules: {
@@ -59,13 +60,23 @@ export default {
     resetLoginForm () {
       this.$refs.loginFormRef.resetFields()
     },
-    Login () {
+    LoginView () {
       this.$refs.loginFormRef.validate(async valid => {
         console.log(this.loginForm)
-        //if (!valid) return
-       // const { data: result } = await this.$http.post('login', this.loginForm)
-       // if (result.meta.status !== 200) return console.log('登录失败')
-        console.log('登录成功')
+        if (!valid) return
+        /*const { data: result } = await this.$http.post('login', this.loginForm)*/
+        const result = request('http://123.60.190.167:8088//datasystem-client/labelManage/getLabelFeature?id=10991')
+        console.log(result)
+        result.then(
+            response => {
+              console.log(response.code)
+              let code = response.code
+               if (code !== 200) return console.log('登录失败')
+               console.log('登录成功')
+              let path = this.$route.query.redirect;
+              this.$router.replace((path == '/' || path == undefined) ? '/about' : path);
+            }
+        )
       })
     }
   }

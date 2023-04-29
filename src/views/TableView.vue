@@ -23,6 +23,7 @@
 
 <script>
 import axios from "axios";
+import request from '@/utils/request'
 import {getAllData} from "@/api/api"
 import {getArticleList} from "@/api/api"
 // 请求延时（毫秒数，如果请求话费超过了'timeout'的时间，请求将被中断）
@@ -33,7 +34,7 @@ export default {
     GetUserInfo() {
       //方案一
       //axios.get('http://123.60.190.167:8088//datasystem-client/labelManage/getLabelFeature?id=10991').then(
-
+      request('http://123.60.190.167:8088//datasystem-client/labelManage/getLabelFeature?id=10991').then(
       //方案二
       // const getNewList = () => {
       //   const params = {
@@ -41,7 +42,7 @@ export default {
       //   }
       //   getArticleList(params).then(
       //方案三
-      getAllData().then(
+    //  getAllData().then(
           response => {
             let data = response.data;
             let result = data.data;
