@@ -8,6 +8,10 @@ export const getAllData = params => {
     return axios.get(`/vue-project/datasystem-client/labelManage/getLabelFeature?id=10991`,{ params: params });
 };
 
+export const getLabel=() => {
+    return request(`/vue-project/datasystem-client/labelManage/getLabelFeature?id=10991`);
+};
+
 export function getArticleList (id) {
     return request({
         url: '/vue-project/datasystem-client/labelManage/getLabelFeature',
@@ -19,6 +23,14 @@ export function getArticleList (id) {
 export const alldata=(data)=> {
     return request({
         url: '/vue-huawei/datasystem-client/workbenchSearchForLog/pageList',
+        method: 'post',
+        data
+    })
+}
+
+export const login=(data)=> {
+    return request({
+        url: '/vue-project/login/userLogin',
         method: 'post',
         data
     })
