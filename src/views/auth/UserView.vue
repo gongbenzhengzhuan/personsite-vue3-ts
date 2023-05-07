@@ -87,7 +87,7 @@ export default {
       )
     },
     DeleteUserInfo() {
-      deleteUser(0).then(
+      deleteUser(3).then(
           response => {
             let data = response.data;
             let code = response.code

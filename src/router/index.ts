@@ -66,6 +66,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/roleView',
     name: 'roleView',
     component: () => import(/* webpackChunkName: "about" */ '../views/auth/RoleView.vue')
+  },
+  {
+    path: '/crudDemoView',
+    name: 'crudDemoView',
+    component: () => import(/* webpackChunkName: "about" */ '../views/auth/CrudDemoView.vue')
   }
 ]
 
