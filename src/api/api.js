@@ -45,6 +45,14 @@ export const userPageList=(data)=> {
     })
 }
 
+// 用户删除
+export function deleteUser (id) {
+    return request({
+        url: '/vue-project/user/userDelete?id='+id,
+        method: 'GET'
+    })
+}
+
 // 角色分页查询
 export const rolePageList=(data)=> {
     return request({

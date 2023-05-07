@@ -43,6 +43,7 @@
     <el-row justify="end">
       <el-form-item class="login_btn">
         <el-button type="primary" @click="GetUserInfo">查询</el-button>
+        <el-button type="primary" @click="DeleteUserInfo">删除</el-button>
       </el-form-item>
     </el-row>
   </el-form>
@@ -52,8 +53,7 @@
 
 <script>
 import axios from "axios";
-import {userPageList} from "@/api/api"
-// 请求延时（毫秒数，如果请求话费超过了'timeout'的时间，请求将被中断）
+import {userPageList,deleteUser} from "@/api/api"
 axios.defaults.timeout = 100000
 export default {
   name: 'UserView',
@@ -85,9 +85,22 @@ export default {
             );
           }
       )
+    },
+    DeleteUserInfo() {
+      deleteUser(0).then(
+          response => {
+            let data = response.data;
+            let code = response.code
+            console.log(code)
+            console.log(data)
+            if (code === 204) {
+              this.$router.push({path: '/'})
+              return console.log('登录失败,请重新登录')
+            }
+          }
+      )
     }
   }
-//}
   ,
   mounted() {
     this.GetUserInfo()
