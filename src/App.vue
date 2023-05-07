@@ -8,6 +8,9 @@
     <router-link to="/sentinel">OtherViews</router-link> |
     <router-link to="/loginPost">loginPost</router-link> |
     <router-link to="/loginPostReal">loginPostReal</router-link> |
+    <router-link to="/searchLogView">searchLogView</router-link> |
+    <router-link to="/userView">userView</router-link> |
+    <router-link to="/roleView">roleView</router-link> |
     <router-link to="/template">Template</router-link>
   </nav>
   <router-view/>

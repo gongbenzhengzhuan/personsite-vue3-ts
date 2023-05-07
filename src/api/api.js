@@ -36,4 +36,22 @@ export const login=(data)=> {
     })
 }
 
+// 用户分页查询
+export const userPageList=(data)=> {
+    return request({
+        url: '/vue-project/user/pageList',
+        method: 'post',
+        data
+    })
+}
+
+// 角色分页查询
+export const rolePageList=(data)=> {
+    return request({
+        url: '/vue-project/role/pageList',
+        method: 'post',
+        data
+    })
+}
+
 export default {alldata}

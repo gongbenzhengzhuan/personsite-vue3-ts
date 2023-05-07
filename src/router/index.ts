@@ -28,42 +28,44 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/table',
     name: 'table',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/TableView.vue')
   },
   {
     path: '/tablePost',
     name: 'tablePost',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/TablePostView.vue')
   },
   {
     path: '/',
     name: 'login',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/LoginView.vue')
   },
   {
     path: '/sentinel',
     name: 'sentinel',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/SentinelView.vue')
   },
   {
     path: '/template',
     name: 'template',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/TemplateView.vue')
+  },
+  // manage
+  {
+    path: '/searchLogView',
+    name: 'searchLogView',
+    component: () => import(/* webpackChunkName: "about" */ '../views/manage/SearchLogView.vue')
+  },
+  // auth
+  {
+    path: '/userView',
+    name: 'userView',
+    component: () => import(/* webpackChunkName: "about" */ '../views/auth/UserView.vue')
+  },
+  {
+    path: '/roleView',
+    name: 'roleView',
+    component: () => import(/* webpackChunkName: "about" */ '../views/auth/RoleView.vue')
   }
 ]
 
