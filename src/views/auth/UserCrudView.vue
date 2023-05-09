@@ -1,6 +1,11 @@
 <template>
   <h2>用户管理</h2>
   <div id="big">
+    <div>
+      用户名称：<input type="text" placeholder="请输入用户名称" v-model="productInfo.login">
+      密码：<input type="text" placeholder="请输入密码" v-model="productInfo.password">
+      <el-button type="info" size="small" @click="GetUserInfo()">查看</el-button>
+    </div>
     <!-- 导入element框架的表格 -->
     <!--    https://blog.csdn.net/qq_38567039/article/details/128057929-->
     <el-table :data="tableData" border style="width: 100%">
@@ -15,6 +20,14 @@
         <el-button type="info" size="small" @click="GetUserInfo()">查看</el-button>
       </el-table-column>
     </el-table>
+    <div>
+      起始页：<input type="number" placeholder="请输入起始页" v-model="productInfo.pageIndex">
+      <br/><br/>
+      页数：<input type="text" placeholder="请输入页数" v-model="productInfo.pageSize">
+      <br/><br/>
+      <el-button type="info1" size="small" @click="GetUserInfo()">查看</el-button>
+    </div>
+
   </div>
 
   <!-- 模式窗口 -->
@@ -60,7 +73,7 @@ export default {
     })
 
     // 文本框双向绑定的值
-    const productInfo = reactive({id: "", login: "", password: "", role: ""});
+    const productInfo = reactive({id: "", login: "", password: "", role: "",pageIndex:"1",pageSize:"1"});
 
     // 删除功能，传索引行数
     function del(index: number, id: number) {
@@ -76,14 +89,16 @@ export default {
 
     }
 
-    const loginForm = {
-      pageIndex: 1,
-      pageSize: 5
-    }
-
     //查看功能
     function GetUserInfo() {
+      const loginForm = {
+        pageIndex: productInfo.pageIndex,
+        pageSize: productInfo.pageSize
+      }
 
+      console.log("loginname:"+productInfo.login)
+      console.log("pageindex:"+loginForm.pageIndex)
+      console.log("pagesize:"+loginForm.pageSize)
       userPageList(loginForm).then(
           response => {
             let data = response.data;
