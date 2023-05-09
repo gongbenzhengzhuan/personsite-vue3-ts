@@ -3,7 +3,15 @@
   <div id="big">
     <div>
       用户名称：<input type="text" placeholder="请输入用户名称" v-model="productInfo.login">
-      密码：<input type="text" placeholder="请输入密码" v-model="productInfo.password">
+<!--      密码：<input type="text" placeholder="请输入密码" v-model="productInfo.password">-->
+      <el-select v-model="productInfo.password" class="m-2" placeholder="Select" size="small">
+        <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+        />
+      </el-select>
       <el-button type="info" size="small" @click="GetUserInfo()">查看</el-button>
     </div>
     <!-- 导入element框架的表格 -->
@@ -66,6 +74,29 @@ export default {
       },
     ]);
 
+    const options = reactive([
+      {
+        value: '全选',
+        label: '',
+      },
+      // {
+      //   value: 'Option2',
+      //   label: 'Option2',
+      // },
+      // {
+      //   value: 'Option3',
+      //   label: 'Option3',
+      // },
+      // {
+      //   value: 'Option4',
+      //   label: 'Option4',
+      // },
+      // {
+      //   value: 'Option5',
+      //   label: 'Option5',
+      // },
+    ]);
+
     onBeforeMount(() => {
       console.log(2)
       GetUserInfo()
@@ -73,7 +104,7 @@ export default {
     })
 
     // 文本框双向绑定的值
-    const productInfo = reactive({id: "", login: "", password: "", role: "",pageIndex:"1",pageSize:"1"});
+    const productInfo = reactive({id: "", login: "", password: "", role: "",pageIndex:"1",pageSize:"10"});
 
     // 删除功能，传索引行数
     function del(index: number, id: number) {
@@ -97,6 +128,7 @@ export default {
       }
 
       console.log("loginname:"+productInfo.login)
+      console.log("productInfo.password:"+productInfo.password)
       console.log("pageindex:"+loginForm.pageIndex)
       console.log("pagesize:"+loginForm.pageSize)
       userPageList(loginForm).then(
@@ -109,6 +141,12 @@ export default {
             console.log(data)
             data.forEach(
                 element => {
+                  options.push(
+                      {
+                        value: element.login,
+                        label: element.login
+                      }
+                  ),
                   tableData.push(
                       {
                         id: element.id,
@@ -177,7 +215,7 @@ export default {
     }
 
     // 暴露方法到页面上
-    return {tableData, del, productInfo, add, show, update, GetUserInfo}
+    return {tableData, del, productInfo, add, show, update, GetUserInfo,options}
   }
 }
 </script>
