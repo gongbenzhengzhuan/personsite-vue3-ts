@@ -71,6 +71,21 @@ const routes: Array<RouteRecordRaw> = [
     path: '/crudDemoView',
     name: 'crudDemoView',
     component: () => import(/* webpackChunkName: "about" */ '../views/auth/CrudDemoView.vue')
+  },
+  {
+    path: '/crudDemoLearnView',
+    name: 'crudDemoLearnView',
+    component: () => import(/* webpackChunkName: "about" */ '../views/auth/CrudDemoLearnView.vue')
+  },
+  {
+    path: '/userCrudView',
+    name: 'userCrudView',
+    component: () => import(/* webpackChunkName: "about" */ '../views/auth/UserCrudView.vue')
+  },
+  {
+    path: '/reactiveView',
+    name: 'reactiveView',
+    component: () => import(/* webpackChunkName: "about" */ '../views/auth/ReactiveView.vue')
   }
 ]
 

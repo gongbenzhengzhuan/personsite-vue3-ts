@@ -45,6 +45,15 @@ export const userPageList=(data)=> {
     })
 }
 
+// 用户添加
+export const userAdd=(data)=> {
+    return request({
+        url: '/vue-project/user/userInsert',
+        method: 'post',
+        data
+    })
+}
+
 // 用户删除
 export function deleteUser (id) {
     return request({

@@ -12,6 +12,9 @@
     <router-link to="/userView">userView</router-link> |
     <router-link to="/roleView">roleView</router-link> |
     <router-link to="/crudDemoView">crudDemoView</router-link> |
+    <router-link to="/reactiveView">reactiveView</router-link> |
+    <router-link to="/crudDemoLearnView">crudDemoLearnView</router-link> |
+    <router-link to="/userCrudView">userCrudView</router-link> |
     <router-link to="/template">Template</router-link>
   </nav>
   <router-view/>
