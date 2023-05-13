@@ -17,6 +17,7 @@ module.exports = defineConfig({
 module.exports = {
   devServer: {
     port: port,
+    // 这个地方的代理只适合本地开发环境，上线后nginx要和这里保持一致，名字要一样
     proxy: {
       "/vue-project": { // 代理接口前缀为/bpi的请求
         //"target": 'http://123.60.190.167:8088/', // 对应的代理地址
